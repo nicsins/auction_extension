@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Auction • Turn Any Listing Into a Live Auction</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+    :root { --primary: #1e40af; }
+    body { font-family: 'Inter', system_ui, sans-serif; }
+    .font-display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
+    .gradient-text { background: linear-gradient(90deg, #1e40af, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .auction-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .auction-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
+    .nav-active { color: #1e40af; border-bottom: 2px solid #1e40af; }
+  </style>
+</head>
+<body class="bg-zinc-950 text-zinc-200">
+  <!-- NAV -->
+  <nav class="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-lg fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+      <div class="flex items-center gap-x-3">
+        <div class="w-9 h-9 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center">
+          <i class="fa-solid fa-gavel text-white text-2xl"></i>
+        </div>
+        <div>
+          <span class="font-display text-2xl font-semibold tracking-tighter">SecureAuction</span>
+        </div>
+      </div>
+      <div class="hidden md:flex items-center gap-x-8 text-sm">
+        <a href="#how" class="hover:text-white transition-colors">How it Works</a>
+        <a href="#features" class="hover:text-white transition-colors">Features</a>
+        <a href="#value" class="hover:text-white transition-colors">Value</a>
+      </div>
+      <div class="flex items-center gap-x-3">
+        <a href="https://github.com/YOUR_USERNAME/auction-extension" target="_blank"
+           class="px-5 py-2.5 text-sm font-medium border border-zinc-700 hover:bg-zinc-900 rounded-3xl transition-all flex items-center gap-x-2">
+          <i class="fa-brands fa-github"></i> <span>GitHub</span>
+        </a>
+        <button onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})"
+                class="px-6 py-2.5 bg-white text-zinc-950 font-semibold rounded-3xl text-sm hover:bg-zinc-100 transition-all">
+          Get the Extension
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="pt-20 pb-16 max-w-5xl mx-auto px-6 text-center">
+    <div class="inline-flex items-center gap-x-2 bg-zinc-900 border border-zinc-800 rounded-3xl px-4 py-1 text-sm mb-6">
+      <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+      <span class="font-medium">Now with live DOM transparency + 2% fees</span>
+    </div>
+    
+    <h1 class="text-6xl md:text-7xl font-display font-semibold tracking-tighter leading-none mb-6">
+      Turn any Craigslist or<br>OfferUp listing into a<br>
+      <span class="gradient-text">live, secure auction</span>
+    </h1>
+    <p class="max-w-2xl mx-auto text-xl text-zinc-400 mb-10">
+      Real-time bidding, countdown timer, transparent connected users, and escrow smart contracts that hold funds until delivery is confirmed.
+    </p>
+    
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <button onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})"
+              class="px-8 py-4 bg-white text-zinc-950 font-semibold rounded-3xl flex items-center justify-center gap-x-3 hover:bg-zinc-100 transition-all text-lg">
+        <i class="fa-solid fa-download"></i> Download Free Extension
+      </button>
+      <a href="#how" class="px-8 py-4 border border-zinc-700 hover:bg-zinc-900 rounded-3xl flex items-center justify-center gap-x-3 text-lg transition-all">
+        Watch 60-second demo
+      </a>
+    </div>
+    <p class="mt-4 text-xs text-zinc-500">Works in Firefox &amp; Chrome • 100% local test mode available</p>
+  </div>
+
+  <!-- TRUST BAR -->
+  <div class="max-w-5xl mx-auto px-6 pb-16">
+    <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 opacity-60">
+      <div class="flex items-center gap-x-2"><i class="fa-solid fa-shield-halved text-emerald-400"></i> <span class="text-sm">Escrow Protected</span></div>
+      <div class="flex items-center gap-x-2"><i class="fa-solid fa-globe text-emerald-400"></i> <span class="text-sm">Real-time via WebSockets</span></div>
+      <div class="flex items-center gap-x-2"><i class="fa-solid fa-link text-emerald-400"></i> <span class="text-sm">2% Platform Fee (lowest in market)</span></div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div id="how" class="max-w-5xl mx-auto px-6 pb-20">
+    <div class="text-center mb-12">
+      <span class="text-blue-400 text-sm font-semibold tracking-[3px]">4 SIMPLE STEPS</span>
+      <h2 class="text-4xl font-display font-semibold tracking-tight mt-2">From listing to paid delivery in minutes</h2>
+    </div>
+    <div class="grid md:grid-cols-4 gap-6">
+      <div class="auction-card bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
+        <div class="w-12 h-12 bg-blue-600/10 text-blue-400 rounded-2xl flex items-center justify-center mb-6"><i class="fa-solid fa-plus text-2xl"></i></div>
+        <h3 class="font-semibold text-xl mb-3">1. Seller creates auction</h3>
+        <p class="text-zinc-400 text-sm">Click extension on any Craigslist/OfferUp listing → set price, duration, reserve → instant live overlay appears.</p>
+      </div>
+      <div class="auction-card bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
+        <div class="w-12 h-12 bg-blue-600/10 text-blue-400 rounded-2xl flex items-center justify-center mb-6"><i class="fa-solid fa-users text-2xl"></i></div>
+        <h3 class="font-semibold text-xl mb-3">2. Buyers bid in real time</h3>
+        <p class="text-zinc-400 text-sm">Live countdown + current bid + bid history + connected users tree visible to everyone.</p>
+      </div>
+      <div class="auction-card bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
+        <div class="w-12 h-12 bg-blue-600/10 text-blue-400 rounded-2xl flex items-center justify-center mb-6"><i class="fa-solid fa-clock text-2xl"></i></div>
+        <h3 class="font-semibold text-xl mb-3">3. Auction ends automatically</h3>
+        <p class="text-zinc-400 text-sm">Winner announced. Funds held in smart contract escrow until delivery confirmed.</p>
+      </div>
+      <div class="auction-card bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
+        <div class="w-12 h-12 bg-blue-600/10 text-blue-400 rounded-2xl flex items-center justify-center mb-6"><i class="fa-solid fa-check-double text-2xl"></i></div>
+        <h3 class="font-semibold text-xl mb-3">4. Funds released on delivery</h3>
+        <p class="text-zinc-400 text-sm">Seller uploads tracking → buyer confirms receipt → 2% fee deducted, rest released instantly.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALUE & REVENUE -->
+  <div id="value" class="bg-zinc-900 py-16">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-4xl font-display font-semibold tracking-tight mb-6">Why platforms &amp; sellers love it</h2>
+          <div class="space-y-6 text-lg">
+            <div class="flex gap-4"><i class="fa-solid fa-percentage text-emerald-400 mt-1"></i> <div><strong>Only 2% fee</strong> — lowest in the industry (eBay charges 6.5%+)</div></div>
+            <div class="flex gap-4"><i class="fa-solid fa-eye text-emerald-400 mt-1"></i> <div><strong>Full transparency</strong> — live DOM tree shows exactly who is bidding</div></div>
+            <div class="flex gap-4"><i class="fa-solid fa-lock text-emerald-400 mt-1"></i> <div><strong>Escrow protection</strong> — funds never move until delivery confirmed</div></div>
+            <div class="flex gap-4"><i class="fa-solid fa-rocket text-emerald-400 mt-1"></i> <div><strong>Zero friction</strong> — works on any existing listing page in seconds</div></div>
+          </div>
+        </div>
+        <div class="bg-zinc-950 border border-zinc-800 rounded-3xl p-8">
+          <div class="text-sm uppercase tracking-widest text-zinc-500 mb-4">PROJECTED REVENUE MODEL</div>
+          <div class="space-y-4">
+            <div class="flex justify-between"><span>Transaction fees (2%)</span> <span class="font-semibold">$480k/yr @ 10k txns</span></div>
+            <div class="flex justify-between"><span>Premium seller subscriptions</span> <span class="font-semibold">$29/mo unlimited</span></div>
+            <div class="flex justify-between"><span>White-label licensing</span> <span class="font-semibold">$5k–15k per platform</span></div>
+          </div>
+          <div class="mt-8 pt-6 border-t border-zinc-800 text-xs text-zinc-500">Built in 3 weeks • Runs on $0 infrastructure for testing • Ready for 10k concurrent users</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div id="cta" class="max-w-3xl mx-auto px-6 py-20 text-center">
+    <h2 class="text-4xl font-display font-semibold tracking-tight mb-4">Ready to launch your own auction marketplace?</h2>
+    <p class="text-xl text-zinc-400 mb-8">We built this in under 3 weeks. Want a custom version, Shiba Inu mainnet integration, or white-label for your platform?</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="https://github.com/YOUR_USERNAME/auction-extension" target="_blank"
+         class="px-10 py-4 bg-white text-zinc-950 font-semibold rounded-3xl flex items-center justify-center gap-x-3 hover:bg-zinc-100 transition-all text-lg">
+        <i class="fa-brands fa-github"></i> Clone from GitHub
+      </a>
+      <button onclick="alert('Thank you! Our team will contact you within 24 hours to discuss custom development or licensing.')"
+              class="px-10 py-4 border border-white/30 hover:bg-white/5 rounded-3xl text-lg transition-all">
+        Talk to us about enterprise
+      </button>
+    </div>
+    <p class="mt-6 text-xs text-zinc-500">Open source • MIT licensed • Full audit trail on-chain</p>
+  </div>
+
+  <footer class="border-t border-zinc-800 py-12 text-center text-xs text-zinc-500">
+    © 2026 SecureAuction • Built with ❤️ for transparent, low-fee commerce
+  </footer>
+</body>
+</html>
